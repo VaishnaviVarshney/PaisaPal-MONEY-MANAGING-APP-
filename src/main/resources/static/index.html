@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaisaPal — Your money, your rules</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="brand"><span class="brand-mark">✿</span><div><strong>PaisaPal</strong><small>Your money, your rules, your vibe. 💜</small></div></div>
+  <nav>
+    <a class="nav-link active" href="#dashboard">⌂ <span>Dashboard</span></a>
+    <a class="nav-link" href="#transactions">▤ <span>Transactions</span></a>
+    <a class="nav-link" href="#budget">▣ <span>Budgets</span></a>
+    <a class="nav-link" href="#goals">♡ <span>Goals</span></a>
+    <a class="nav-link" href="#streak">♧ <span>No-Spend Streak</span></a>
+    <a class="nav-link" href="#insights">✧ <span>Insights</span></a>
+    <a class="nav-link" href="#wishlist">♡ <span>Wishlist</span></a>
+  </nav>
+  <div class="sidebar-note"><p>Small steps today,<br>big dreams tomorrow!</p><span>🌱 🐈</span></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><p class="eyebrow">YOUR PERSONAL MONEY SPACE</p><h1>Hey, Vaishnavi! <span>👋</span></h1><p class="subheading">Here's your money story for this month.</p></div><div class="top-actions"><input id="globalSearch" placeholder="⌕  Search transactions..." aria-label="Search transactions"><button class="avatar" title="Demo profile">V</button></div></header>
+<section class="summary-grid" id="dashboard">
+  <article class="stat-card"><div class="stat-label"><span class="stat-icon purple">▣</span>Total Balance</div><strong id="balance">₹0</strong><small class="positive">↗ Your money at a glance</small></article>
+  <article class="stat-card"><div class="stat-label"><span class="stat-icon mint">▧</span>Total Income</div><strong id="income">₹0</strong><small class="positive">↗ Money coming in</small></article>
+  <article class="stat-card"><div class="stat-label"><span class="stat-icon pink">↘</span>Total Expenses</div><strong id="expenses">₹0</strong><small class="muted">Keep an eye on spending</small></article>
+  <article class="stat-card"><div class="stat-label"><span class="stat-icon lilac">♡</span>Savings</div><strong id="savings">₹0</strong><small class="positive" id="savingsRate">You're building good habits</small></article>
+</section>
+<section class="middle-grid">
+ <article class="panel personality"><div class="illustration">☁️<div class="big-emoji">🪻</div><span>✦ 💜 ✦</span></div><div><p class="eyebrow">YOUR MONEY PERSONALITY ✧</p><h2 id="personality">The Balanced Dreamer</h2><p id="personalityText">You save, you spend, you live. You like to enjoy the present but also think about your future. Keep going!</p><button class="button secondary" id="insightBtn">View full analysis →</button></div></article>
+ <article class="panel"><div class="panel-heading"><div><h2>Monthly Overview</h2><p class="muted">Where your money goes</p></div><span class="pill">All time</span></div><div class="chart-wrap"><canvas id="categoryChart"></canvas><div id="categoryLegend" class="legend"></div></div></article>
+</section>
+<section class="panel transactions-panel" id="transactions">
+ <div class="panel-heading transaction-heading"><div><h2>Recent Transactions</h2><p class="muted">Your money moves, all in one place.</p></div><div class="filters"><select id="typeFilter"><option value="">All types</option><option value="INCOME">Income</option><option value="EXPENSE">Expense</option></select><button class="button" id="addTransactionBtn">＋ Add transaction</button></div></div>
+ <div class="table-scroll"><table><thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Type</th><th>Amount</th><th>Action</th></tr></thead><tbody id="transactionRows"></tbody></table></div>
+ <p id="emptyState" class="empty-state" hidden>No transactions found. Add your first one! 💜</p>
+</section>
+<section class="lower-grid">
+ <article class="panel"><div class="panel-heading"><div><h2>Monthly Spending Trend</h2><p class="muted">Income vs expenses</p></div></div><canvas id="trendChart" height="180"></canvas></article>
+ <article class="panel" id="budget"><div class="panel-heading"><div><h2>Budget Bestie 💜</h2><p class="muted">Give your money a monthly boundary.</p></div></div><label for="budgetInput">Monthly expense limit (₹)</label><div class="inline-form"><input id="budgetInput" type="number" min="1" value="10000"><button class="button" id="saveBudget">Save budget</button></div><div class="progress-track"><div id="budgetProgress" class="progress-fill"></div></div><p id="budgetText" class="muted">Loading budget...</p></article>
+</section>
+<section class="lower-grid">
+ <article class="panel" id="goals"><div class="panel-heading"><div><h2>Your Goals ✨</h2><p class="muted">Tiny steps, big main-character energy.</p></div><button class="text-button" id="addGoalBtn">＋ Add goal</button></div><div id="goalList" class="goal-list"></div></article>
+ <article class="panel" id="streak"><div class="panel-heading"><div><h2>🌱 No-Spend Streak</h2><span class="pill">Demo challenge</span></div></div><div class="streak-number">6 <span>days 🎉</span></div><p class="muted">Celebrate mindful choices, not perfection.</p><div class="streak-dots"><span>✓</span><span>✓</span><span>✓</span><span>✓</span><span>✓</span><span>✓</span><span>♡</span></div><p class="quote">“Discipline today = freedom tomorrow.”</p></article>
+</section>
+<section class="lower-grid">
+ <article class="panel" id="insights"><div class="panel-heading"><div><h2>Recent Insights 💡</h2><p class="muted">Friendly nudges based on your transactions.</p></div></div><ul id="insightList" class="insight-list"></ul></article>
+ <article class="panel" id="wishlist"><div class="panel-heading"><div><h2>Want vs Need Wishlist</h2><p class="muted">Pause, plan, then purchase.</p></div></div><form id="wishlistForm" class="inline-form"><input id="wishName" placeholder="e.g. Wireless headphones" required><input id="wishPrice" type="number" min="1" placeholder="Price ₹" required><button class="button" type="submit">Add</button></form><ul id="wishList" class="wish-list"></ul><p class="muted tiny">Wishlist is saved in this browser only.</p></article>
+</section>
+<footer>Made with 💜 and a little financial self-love · PaisaPal</footer>
+</main></div>
+<dialog id="transactionDialog"><form id="transactionForm" method="dialog" class="dialog-form"><div class="panel-heading"><h2 id="dialogTitle">Add transaction</h2><button type="button" class="close-btn" id="closeDialog">✕</button></div><input type="hidden" id="transactionId"><label>Description<input id="description" required maxlength="80" placeholder="e.g. Grocery shopping"></label><div class="form-row"><label>Type<select id="transactionType"><option value="EXPENSE">Expense</option><option value="INCOME">Income</option></select></label><label>Category<select id="category" required><option>Food</option><option>Shopping</option><option>Travel</option><option>Bills</option><option>Education</option><option>Entertainment</option><option>Health</option><option>Salary</option><option>Other</option></select></label></div><div class="form-row"><label>Amount (₹)<input id="amount" type="number" min="0.01" step="0.01" required></label><label>Date<input id="date" type="date" required></label></div><label>Note (optional)<input id="notes" maxlength="160" placeholder="A little note..."></label><p id="formError" class="error-text"></p><button class="button block" type="submit">Save transaction 💜</button></form></dialog>
+<dialog id="goalDialog"><form id="goalForm" method="dialog" class="dialog-form"><div class="panel-heading"><h2>Create a savings goal</h2><button type="button" class="close-btn" id="closeGoalDialog">✕</button></div><label>Goal name<input id="goalName" required placeholder="e.g. Concert tickets"></label><div class="form-row"><label>Target (₹)<input id="goalTarget" type="number" min="1" required></label><label>Already saved (₹)<input id="goalSaved" type="number" min="0" value="0" required></label></div><label>Emoji<select id="goalEmoji"><option>💜</option><option>👟</option><option>✈️</option><option>🐷</option><option>🎧</option><option>💻</option></select></label><p id="goalError" class="error-text"></p><button class="button block" type="submit">Save my goal</button></form></dialog>
+<div id="toast" class="toast" role="status"></div>
+<script src="/app.js"></script>
+</body></html>

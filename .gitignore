@@ -1,0 +1,34 @@
+# Maven build output
+
+target/
+
+# Local H2 database files
+
+data/
+*.mv.db
+*.trace.db
+*.lock.db
+
+# Java logs
+
+*.log
+
+# IDE and operating system files
+
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local environment configuration
+
+.env
+.env.*
+!.env.example
+# Local VS Code settings
+
+.vscode/
+
+# Generated and local files
+
+target/
+data/

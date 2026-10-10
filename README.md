@@ -1,6 +1,6 @@
-# PaisaPal 💜 — Personal Finance Tracker
+# PaisaPal 💜 — MONEY MANAGING APP
 
-PaisaPal is a personal finance management web application that I built to make it easier to track daily expenses, manage a monthly budget, and keep track of savings goals.
+PaisaPal is a money management web application that I built to make it easier to track daily expenses, manage a monthly budget, and keep track of savings goals.
 
 The idea behind this project is simple: instead of keeping track of expenses manually, users can manage their financial activity in one place through a simple and easy-to-use dashboard.
 
